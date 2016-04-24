@@ -19,6 +19,10 @@ class User {
     func addTrip(trip : Trip){
         trips.append(trip)
     }
+    
+    func isFriendWith(anotherUser : User) -> Bool {
+        return friends.contains(anotherUser)
+    }
 }
 
 extension User : Equatable {}

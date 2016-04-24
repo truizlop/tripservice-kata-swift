@@ -9,8 +9,8 @@
 import Foundation
 
 class UserBuilder {
-    private var friends : [User]! = nil
-    private var trips : [Trip]! = nil
+    private var friends : [User] = []
+    private var trips : [Trip] = []
     
     func withFriends(friends : User...) -> UserBuilder {
         self.friends = friends
