@@ -12,4 +12,8 @@ class TripDAO {
     class func findTripsByUser(user : User) throws -> [Trip] {
         throw TripServiceError.CollaboratorCalled
     }
+    
+    func findTripsBy(user : User) throws -> [Trip] {
+        return try TripDAO.findTripsByUser(user)
+    }
 }

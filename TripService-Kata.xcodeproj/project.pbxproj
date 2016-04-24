@@ -23,6 +23,7 @@
 		1140C6E51CCD3A46009B726A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140C6D41CCD3366009B726A /* Trip.swift */; };
 		1140C6E71CCD3F42009B726A /* UserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140C6E61CCD3F42009B726A /* UserBuilder.swift */; };
 		1140C6E91CCD415C009B726A /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140C6E81CCD415C009B726A /* UserTest.swift */; };
+		1140C6EB1CCD4511009B726A /* TripDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140C6EA1CCD4511009B726A /* TripDAOTest.swift */; };
 		1F62A69D89A384049030088D /* Pods_TripService_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785C1B874B241060A6463440 /* Pods_TripService_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		1140C6DE1CCD396A009B726A /* TripServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTest.swift; sourceTree = "<group>"; };
 		1140C6E61CCD3F42009B726A /* UserBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBuilder.swift; sourceTree = "<group>"; };
 		1140C6E81CCD415C009B726A /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
+		1140C6EA1CCD4511009B726A /* TripDAOTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDAOTest.swift; sourceTree = "<group>"; };
 		785C1B874B241060A6463440 /* Pods_TripService_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripService_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F60BFFD8581E166BF3B92A5 /* Pods-TripService-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripService-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripService-Tests/Pods-TripService-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,8 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				1140C6CC1CCD32EC009B726A /* Info.plist */,
-				1140C6DE1CCD396A009B726A /* TripServiceTest.swift */,
+				1140C6EA1CCD4511009B726A /* TripDAOTest.swift */,
 				1140C6DD1CCD396A009B726A /* TripService-Tests-Bridging-Header.h */,
+				1140C6DE1CCD396A009B726A /* TripServiceTest.swift */,
 				1140C6E61CCD3F42009B726A /* UserBuilder.swift */,
 				1140C6E81CCD415C009B726A /* UserTest.swift */,
 			);
@@ -298,6 +301,7 @@
 				1140C6E11CCD3A37009B726A /* TripDAO.swift in Sources */,
 				1140C6E01CCD39BA009B726A /* TripService.swift in Sources */,
 				1140C6E71CCD3F42009B726A /* UserBuilder.swift in Sources */,
+				1140C6EB1CCD4511009B726A /* TripDAOTest.swift in Sources */,
 				1140C6DF1CCD396A009B726A /* TripServiceTest.swift in Sources */,
 				1140C6E41CCD3A3D009B726A /* UserSession.swift in Sources */,
 				1140C6E31CCD3A3D009B726A /* User.swift in Sources */,
