@@ -12,7 +12,7 @@ class TripService {
     
     func getTripsByUser(user : User) throws -> [Trip] {
         var tripList : [Trip] = []
-        let loggedUser = try! UserSession.sharedInstance.getLoggedUser()
+        let loggedUser = try! getLoggedUser()
         var isFriend = false
         
         if loggedUser != nil {
@@ -23,11 +23,19 @@ class TripService {
                 }
             }
             if isFriend {
-                tripList = try! TripDAO.findTripsByUser(user)
+                tripList = try! getTrips(user)
             }
             return tripList
         }else{
             throw TripServiceError.UserNotLoggedIn
         }
+    }
+    
+    func getLoggedUser() throws -> User? {
+        return try! UserSession.sharedInstance.getLoggedUser()
+    }
+    
+    func getTrips(user : User) throws -> [Trip] {
+        return try! TripDAO.findTripsByUser(user)
     }
 }
