@@ -21,13 +21,14 @@ class TripServiceTest : QuickSpec {
             let TO_MADRID = Trip()
             
             it("should throw UserNotLoggedIn error when there is no one logged"){
-                let tripService = TestableTripService()
+                
+                let tripService = TripService(tripDAO : MockTripDAO())
                 
                 expect{ try tripService.getTripsByUser(UNUSED_USER, loggedUser: GUEST) }.to(throwError(TripServiceError.UserNotLoggedIn))
             }
             
             it("should return empty list if logged user is not friends with user"){
-                let tripService = TestableTripService()
+                let tripService = TripService(tripDAO : MockTripDAO())
                 let anyUser = aUser()
                     .withFriends(JOHN, MARY)
                     .withTrips(TO_OSLO, TO_MADRID).build()
@@ -38,7 +39,7 @@ class TripServiceTest : QuickSpec {
             }
             
             it("should return trip list if logged user is friend of user"){
-                let tripService = TestableTripService()
+                let tripService = TripService(tripDAO : MockTripDAO())
                 let anyUser = aUser()
                     .withFriends(JOHN, MARY, LOGGED_USER)
                     .withTrips(TO_OSLO, TO_MADRID).build()
@@ -50,10 +51,10 @@ class TripServiceTest : QuickSpec {
         }
     }
     
-    class TestableTripService : TripService {
-        
-        override func getTrips(user: User) throws -> [Trip] {
+    class MockTripDAO : TripDAO {
+        override func findTripsBy(user: User) throws -> [Trip] {
             return user.trips
         }
     }
+    
 }

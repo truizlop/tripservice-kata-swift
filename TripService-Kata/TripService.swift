@@ -9,6 +9,11 @@
 import Foundation
 
 class TripService {
+    let tripDAO : TripDAO
+    
+    init(tripDAO : TripDAO){
+        self.tripDAO = tripDAO
+    }
     
     func getTripsByUser(user : User, loggedUser : User?) throws -> [Trip] {
         guard let loggedUser = loggedUser
@@ -17,13 +22,9 @@ class TripService {
         var tripList : [Trip] = []
         
         if user.isFriendWith(loggedUser) {
-            tripList = try! getTrips(user)
+            tripList = try! tripDAO.findTripsBy(user)
         }
         return tripList
         
-    }
-    
-    func getTrips(user : User) throws -> [Trip] {
-        return try! TripDAO.findTripsByUser(user)
     }
 }
