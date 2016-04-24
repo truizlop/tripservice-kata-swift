@@ -10,8 +10,8 @@ import Foundation
 
 class TripService {
     
-    func getTripsByUser(user : User) throws -> [Trip] {
-        guard let loggedUser = try getLoggedUser()
+    func getTripsByUser(user : User, loggedUser : User?) throws -> [Trip] {
+        guard let loggedUser = loggedUser
         else{ throw TripServiceError.UserNotLoggedIn }
         
         var tripList : [Trip] = []
@@ -21,10 +21,6 @@ class TripService {
         }
         return tripList
         
-    }
-    
-    func getLoggedUser() throws -> User? {
-        return try! UserSession.sharedInstance.getLoggedUser()
     }
     
     func getTrips(user : User) throws -> [Trip] {

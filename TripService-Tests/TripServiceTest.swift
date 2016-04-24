@@ -21,29 +21,29 @@ class TripServiceTest : QuickSpec {
             let TO_MADRID = Trip()
             
             it("should throw UserNotLoggedIn error when there is no one logged"){
-                let tripService = TestableTripService(loggedUser : GUEST)
+                let tripService = TestableTripService()
                 
-                expect{ try tripService.getTripsByUser(UNUSED_USER) }.to(throwError(TripServiceError.UserNotLoggedIn))
+                expect{ try tripService.getTripsByUser(UNUSED_USER, loggedUser: GUEST) }.to(throwError(TripServiceError.UserNotLoggedIn))
             }
             
             it("should return empty list if logged user is not friends with user"){
-                let tripService = TestableTripService(loggedUser : LOGGED_USER)
+                let tripService = TestableTripService()
                 let anyUser = aUser()
                     .withFriends(JOHN, MARY)
                     .withTrips(TO_OSLO, TO_MADRID).build()
                 
-                let trips = try! tripService.getTripsByUser(anyUser)
+                let trips = try! tripService.getTripsByUser(anyUser, loggedUser: LOGGED_USER)
                 
                 expect(trips.count) == 0
             }
             
             it("should return trip list if logged user is friend of user"){
-                let tripService = TestableTripService(loggedUser : LOGGED_USER)
+                let tripService = TestableTripService()
                 let anyUser = aUser()
                     .withFriends(JOHN, MARY, LOGGED_USER)
                     .withTrips(TO_OSLO, TO_MADRID).build()
                 
-                let trips = try! tripService.getTripsByUser(anyUser)
+                let trips = try! tripService.getTripsByUser(anyUser, loggedUser: LOGGED_USER)
                 
                 expect(trips.count) == 2
             }
@@ -51,15 +51,6 @@ class TripServiceTest : QuickSpec {
     }
     
     class TestableTripService : TripService {
-        var loggedUser : User?
-        
-        init(loggedUser : User?){
-            self.loggedUser = loggedUser
-        }
-        
-        override func getLoggedUser() throws -> User? {
-            return self.loggedUser
-        }
         
         override func getTrips(user: User) throws -> [Trip] {
             return user.trips
