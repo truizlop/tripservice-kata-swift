@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>TripService-Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1140C6B91CCD32CD009B726A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1140C6C71CCD32EC009B726A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
